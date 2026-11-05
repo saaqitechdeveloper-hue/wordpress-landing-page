@@ -865,6 +865,15 @@ header .ct-container .logo img {
     padding-bottom: 235px !important;
 }
 
+#hero-banner .orange-element {
+    top: -10px;
+}
+
+#hero-banner .hero-banner-gif {
+    top: -10px;
+    height: 102%;
+}
+
 #winter-packages-section {
     position: relative;
     z-index: 5;
