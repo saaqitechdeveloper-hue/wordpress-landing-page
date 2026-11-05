@@ -1,0 +1,6 @@
+# Deny all direct HTTP requests to SQLite database
+<Files ~ "\.(sqlite|db)$">
+    Order deny,allow
+    Deny from all
+</Files>
+Deny from all

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table - Single Data Source</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+        .package_table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .package_table-title {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a237e;
+            font-size: 2.5rem;
+        }
+        
+        .package_table-subtitle {
+            text-align: center;
+            color: #5c6bc0;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Desktop Table */
+        .package_table-desktop {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            display: none;
+        }
+        
+        .package_table-desktop th, .package_table-desktop td {
+            padding: 18px 15px;
+            text-align: center;
+            border: 1px solid #eaeaea;
+        }
+        
+        .package_table-desktop th {
+            background-color: #1a237e;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .package_table-desktop thead th:first-child {
+            background-color: #283593;
+            text-align: left;
+        }
+        
+        .package_table-desktop tbody tr:first-child td {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #1a237e;
+        }
+        
+        .package_table-desktop tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .package_table-desktop tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #1a237e;
+            background-color: #f8f9fa;
+        }
+        
+        /* Mobile Cards Container */
+        .package_table-mobile-cards {
+            display: none;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .package_table-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .package_table-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .package_table-card-header {
+            background-color: #1a237e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .package_table-card-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .package_table-card-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .package_table-card-features {
+            padding: 20px;
+        }
+        
+        .package_table-feature-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .package_table-feature-item:last-child {
+            border-bottom: none;
+        }
+        
+        .package_table-feature-name {
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+        
+        .package_table-feature-value {
+            color: #1a237e;
+            font-weight: 600;
+            text-align: right;
+            flex: 1;
+        }
+        
+        /* Common Styles */
+        .package_table-checkmark {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .package_table-crossmark {
+            color: #f44336;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .package_table-hidden-row {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .package_table-hidden-row.visible {
+            display: table-row;
+            opacity: 1;
+        }
+        
+        .package_table-mobile-hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .package_table-mobile-hidden.expanded {
+            max-height: 2000px;
+        }
+        
+        /* General Toggle Button (for desktop) */
+        .package_table-toggle-container {
+            text-align: center;
+            margin: 30px 0 40px;
+        }
+        
+        .package_table-toggle-btn {
+            background-color: #3949ab;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(57, 73, 171, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .package_table-toggle-btn:hover {
+            background-color: #303f9f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(57, 73, 171, 0.4);
+        }
+        
+        .package_table-toggle-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .package_table-toggle-btn.expanded i {
+            transform: rotate(180deg);
+        }
+        
+        /* Mobile Card Toggle Button */
+        .package_table-card-toggle {
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .package_table-card-toggle:hover {
+            background-color: #3949ab;
+        }
+        
+        .package_table-card-toggle i {
+            transition: transform 0.3s ease;
+        }
+        
+        .package_table-card-toggle.expanded i {
+            transform: rotate(180deg);
+        }
+        
+        /* Select Plan Button - Initially Hidden */
+        .package_table-select-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none;
+        }
+        
+        .package_table-select-btn.visible {
+            display: block;
+        }
+        
+        .package_table-select-btn:hover {
+            background-color: #388e3c;
+        }
+        
+        .package_table-select-btn-desktop {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            display: none;
+        }
+        
+        .package_table-select-btn-desktop.visible {
+            display: inline-block;
+        }
+        
+        .package_table-select-btn-desktop:hover {
+            background-color: #388e3c;
+        }
+        
+        /* Section Heading Row */
+        .package_table-section-heading {
+            background-color: #e8eaf6 !important;
+            font-weight: bold !important;
+            font-size: 1.2rem !important;
+            color: #1a237e !important;
+            text-align: center !important;
+            padding: 20px 15px !important;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 992px) {
+            .package_table-desktop {
+                display: table;
+            }
+            
+            .package_table-mobile-cards {
+                display: none !important;
+            }
+            
+            .package_table-toggle-container {
+                display: block;
+            }
+            
+            .package_table-card-toggle {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .package_table-desktop {
+                display: none;
+            }
+            
+            .package_table-mobile-cards {
+                display: flex;
+            }
+            
+            .package_table-toggle-container {
+                display: none;
+            }
+            
+            .package_table-card-toggle {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .package_table-title {
+                font-size: 2rem;
+            }
+            
+            .package_table-subtitle {
+                font-size: 1rem;
+            }
+            
+            .package_table-toggle-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .package_table-card-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .package_table-card-price {
+                font-size: 2rem;
+            }
+        }
+        
+        .package_table-section-title {
+            font-weight: bold;
+            color: #1a237e;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a237e;
+        }
+        
+        .package_table-value-added {
+            background-color: #e8eaf6;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        .package_table-value-added h4 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        
+        .package_table-value-added-item {
+            padding: 10px 0;
+            border-bottom: 1px dashed #c5cae9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .package_table-value-added-item:last-child {
+            border-bottom: none;
+        }
+        
+        .package_table-value-added-item i {
+            color: #4caf50;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="package_table-container">
+        <!-- H1 and P elements added back -->
+        <h1 class="package_table-title"></h1>
+        <p class="package_table-subtitle"></p>
+        
+        <!-- Desktop Table - Will be generated by JavaScript -->
+        <table class="package_table-desktop" id="package_table-desktop"></table>
+        
+        <!-- Mobile Cards Container - Will be generated by JavaScript -->
+        <div class="package_table-mobile-cards" id="package_table-mobile-cards"></div>
+        
+        <!-- General Toggle Button (for desktop only) -->
+        <div class="package_table-toggle-container">
+            <button class="package_table-toggle-btn" id="package_table-toggle-btn">
+                <span>View Complete Package Details</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ========== ALL YOUR DATA IN ONE OBJECT ==========
+        const packageTableData = {
+            pageTitle: "Pricing",
+            pageSubtitle: "Choose the perfect plan for your business needs",
+            
+            plans: [
+                { 
+                    name: "Basic", 
+                    price: "$249",
+                    color: "#1a237e"
+                },
+                { 
+                    name: "Professional", 
+                    price: "$349",
+                    color: "#3949ab"
+                },
+                { 
+                    name: "Elite", 
+                    price: "$699",
+                    color: "#5c6bc0"
+                },
+                { 
+                    name: "Enterprise Starting from", 
+                    price: "$1199",
+                    color: "#7986cb"
+                }
+            ],
+            
+            // Basic features (initially visible)
+            basicFeatures: [
+                { 
+                    name: "NO of Pages", 
+                    values: ["3–5", "5–8", "Unlimited", "Unlimited"]
+                },
+                { 
+                    name: "Stock Photos", 
+                    values: ["05", "10", "20", "Unlimited"]
+                },
+                { 
+                    name: "No of banners", 
+                    values: ["02", "05", "10", "Unlimited"]
+                },
+                { 
+                    name: "jQuery Slider banner", 
+                    values: ["01", "03", "05", "Unlimited"]
+                },
+                { 
+                    name: "Revisions", 
+                    values: ["Unlimited", "Unlimited", "Unlimited", "Unlimited"]
+                },
+                { 
+                    name: "Striking hover effect", 
+                    values: ["✓", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Design", 
+                    values: [
+                        "Template Based", 
+                        "Design", 
+                        "Custom Design", 
+                        "Bespoke design, Dynamic, Interactive, and High-end Design"
+                    ]
+                }
+            ],
+            
+            // Hidden features (initially hidden)
+            hiddenFeatures: [
+                { 
+                    name: "Online Payment Integration", 
+                    values: ["✗", "✗", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Mobile responsive", 
+                    values: ["✗", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "CMS", 
+                    values: ["✗", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Custom forms", 
+                    values: ["✗", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Search Bar/Filters", 
+                    values: ["✓", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Google Friendly Sitemap", 
+                    values: ["✓", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Core Features", 
+                    values: ["✗", "✗", "Booking / Online Store etc", "Booking / Online Store etc"]
+                }
+            ],
+            
+            // Value added services (ONLY 3 items as requested)
+            valueAddedServices: [
+                { 
+                    name: "Dedicated account manager", 
+                    values: ["✓", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Social Media Page Design", 
+                    values: ["✓", "✓", "✓", "✓"],
+                    isCheckmark: true
+                },
+                { 
+                    name: "Complete deployment", 
+                    values: ["✓", "✓", "✓", "✓"],
+                    isCheckmark: true
+                }
+            ],
+            
+            // Button text
+            toggleButtonText: {
+                show: "View Complete Package Details",
+                hide: "Hide Complete Package Details"
+            },
+            
+            // Section titles
+            sectionTitles: {
+                advancedFeatures: "Advanced Features",
+                valueAddedServices: "Value Added Services"
+            }
+        };
+        
+        // ========== FUNCTION TO GENERATE DESKTOP TABLE ==========
+        function generateDesktopTable() {
+            const table = document.getElementById('package_table-desktop');
+            const totalColumns = packageTableData.plans.length + 1; // +1 for feature column
+            
+            // Create table header
+            let tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Features</th>
+            `;
+            
+            // Add plan headers
+            packageTableData.plans.forEach(plan => {
+                tableHTML += `<th>${plan.name}</th>`;
+            });
+            
+            tableHTML += `</tr></thead><tbody>`;
+            
+            // Add pricing row
+            tableHTML += `<tr><td>Pricing $</td>`;
+            packageTableData.plans.forEach(plan => {
+                tableHTML += `<td>${plan.price}</td>`;
+            });
+            tableHTML += `</tr>`;
+            
+            // Add basic features (initially visible)
+            packageTableData.basicFeatures.forEach(feature => {
+                tableHTML += `<tr><td>${feature.name}</td>`;
+                feature.values.forEach(value => {
+                    if (feature.isCheckmark) {
+                        const className = value === "✓" ? "package_table-checkmark" : "package_table-crossmark";
+                        tableHTML += `<td><span class="${className}">${value}</span></td>`;
+                    } else {
+                        tableHTML += `<td>${value}</td>`;
+                    }
+                });
+                tableHTML += `</tr>`;
+            });
+            
+            // Add Advanced Features heading row - SINGLE TD with colspan
+            tableHTML += `
+                <tr class="package_table-hidden-row">
+                    <td colspan="${totalColumns}" class="package_table-section-heading">
+                        ${packageTableData.sectionTitles.advancedFeatures}
+                    </td>
+                </tr>
+            `;
+            
+            // Add hidden features
+            packageTableData.hiddenFeatures.forEach(feature => {
+                tableHTML += `<tr class="package_table-hidden-row"><td>${feature.name}</td>`;
+                feature.values.forEach(value => {
+                    if (feature.isCheckmark) {
+                        const className = value === "✓" ? "package_table-checkmark" : "package_table-crossmark";
+                        tableHTML += `<td><span class="${className}">${value}</span></td>`;
+                    } else {
+                        tableHTML += `<td>${value}</td>`;
+                    }
+                });
+                tableHTML += `</tr>`;
+            });
+            
+            // Add Value Added Services heading row - SINGLE TD with colspan
+            tableHTML += `
+                <tr class="package_table-hidden-row">
+                    <td colspan="${totalColumns}" class="package_table-section-heading">
+                        ${packageTableData.sectionTitles.valueAddedServices}
+                    </td>
+                </tr>
+            `;
+            
+            // Add value added services
+            packageTableData.valueAddedServices.forEach(service => {
+                tableHTML += `<tr class="package_table-hidden-row"><td>${service.name}</td>`;
+                service.values.forEach(value => {
+                    tableHTML += `<td><span class="package_table-checkmark">${value}</span></td>`;
+                });
+                tableHTML += `</tr>`;
+            });
+            
+            // Add select plan buttons row (initially hidden)
+            tableHTML += `<tr id="package_table-desktop-buttons-row" style="display: none;"><td></td>`;
+            packageTableData.plans.forEach((plan, index) => {
+                tableHTML += `<td><button class="package_table-select-btn-desktop" data-plan-index="${index}">Select Plan</button></td>`;
+            });
+            tableHTML += `</tr>`;
+            
+            tableHTML += `</tbody>`;
+            table.innerHTML = tableHTML;
+        }
+        
+        // ========== FUNCTION TO GENERATE MOBILE CARDS ==========
+        function generateMobileCards() {
+            const container = document.getElementById('package_table-mobile-cards');
+            container.innerHTML = '';
+            
+            // Create a card for each plan
+            packageTableData.plans.forEach((plan, planIndex) => {
+                const card = document.createElement('div');
+                card.className = 'package_table-card';
+                card.id = `package_table-card-${planIndex}`;
+                
+                let cardHTML = `
+                    <div class="package_table-card-header" style="background-color: ${plan.color}">
+                        <h3>${plan.name}</h3>
+                        <div class="package_table-card-price">${plan.price}</div>
+                    </div>
+                    <div class="package_table-card-features">
+                `;
+                
+                // Add pricing as first feature
+                cardHTML += `
+                    <div class="package_table-feature-item">
+                        <span class="package_table-feature-name">Pricing $</span>
+                        <span class="package_table-feature-value">${plan.price}</span>
+                    </div>
+                `;
+                
+                // Add basic features
+                packageTableData.basicFeatures.forEach(feature => {
+                    const value = feature.values[planIndex];
+                    cardHTML += `
+                        <div class="package_table-feature-item">
+                            <span class="package_table-feature-name">${feature.name}</span>
+                            <span class="package_table-feature-value ${feature.isCheckmark ? (value === "✓" ? "package_table-checkmark" : "package_table-crossmark") : ""}">
+                                ${value}
+                            </span>
+                        </div>
+                    `;
+                });
+                
+                // Add hidden features section (initially collapsed)
+                cardHTML += `
+                    <div class="package_table-mobile-hidden" id="package_table-hidden-${planIndex}">
+                        <div class="package_table-section-title">${packageTableData.sectionTitles.advancedFeatures}</div>
+                `;
+                
+                packageTableData.hiddenFeatures.forEach(feature => {
+                    const value = feature.values[planIndex];
+                    cardHTML += `
+                        <div class="package_table-feature-item">
+                            <span class="package_table-feature-name">${feature.name}</span>
+                            <span class="package_table-feature-value ${feature.isCheckmark ? (value === "✓" ? "package_table-checkmark" : "package_table-crossmark") : ""}">
+                                ${value}
+                            </span>
+                        </div>
+                    `;
+                });
+                
+                // Add value added services (ONLY 3 items)
+                cardHTML += `
+                    <div class="package_table-value-added">
+                        <h4>${packageTableData.sectionTitles.valueAddedServices}</h4>
+                `;
+                
+                packageTableData.valueAddedServices.forEach(service => {
+                    cardHTML += `
+                        <div class="package_table-value-added-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>${service.name}</span>
+                        </div>
+                    `;
+                });
+                
+                cardHTML += `
+                    </div>
+                    </div>
+                    
+                    <!-- Card Toggle Button (for mobile only) -->
+                    <button class="package_table-card-toggle" id="package_table-card-toggle-${planIndex}" data-card-index="${planIndex}">
+                        <span>View Complete Package Details</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <!-- Select Plan Button (initially hidden) -->
+                    <button class="package_table-select-btn" id="package_table-select-${planIndex}" data-plan-index="${planIndex}">Select Plan</button>
+                `;
+                
+                card.innerHTML = cardHTML;
+                container.appendChild(card);
+            });
+        }
+        
+        // ========== INITIALIZE PAGE ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set page title and subtitle (if elements exist)
+            const titleElement = document.querySelector('.package_table-title');
+            const subtitleElement = document.querySelector('.package_table-subtitle');
+            
+            if (titleElement) {
+                titleElement.textContent = packageTableData.pageTitle;
+            }
+            
+            if (subtitleElement) {
+                subtitleElement.textContent = packageTableData.pageSubtitle;
+            }
+            
+            // Generate both views
+            generateDesktopTable();
+            generateMobileCards();
+            
+            // Desktop toggle button functionality
+            const desktopToggleBtn = document.getElementById('package_table-toggle-btn');
+            const desktopToggleText = desktopToggleBtn.querySelector('span');
+            const desktopHiddenRows = document.querySelectorAll('.package_table-hidden-row');
+            const desktopButtonsRow = document.getElementById('package_table-desktop-buttons-row');
+            const desktopSelectButtons = document.querySelectorAll('.package_table-select-btn-desktop');
+            
+            let desktopExpanded = false;
+            
+            desktopToggleBtn.addEventListener('click', function() {
+                if (!desktopExpanded) {
+                    // Show hidden rows in desktop table
+                    desktopHiddenRows.forEach((row, index) => {
+                        setTimeout(() => {
+                            row.classList.add('visible');
+                        }, index * 30);
+                    });
+                    
+                    // Show select plan buttons row
+                    desktopButtonsRow.style.display = 'table-row';
+                    desktopSelectButtons.forEach(btn => {
+                        btn.classList.add('visible');
+                    });
+                    
+                    desktopToggleText.textContent = packageTableData.toggleButtonText.hide;
+                    desktopToggleBtn.classList.add('expanded');
+                    desktopExpanded = true;
+                } else {
+                    // Hide rows in desktop table
+                    desktopHiddenRows.forEach((row, index) => {
+                        setTimeout(() => {
+                            row.classList.remove('visible');
+                        }, index * 20);
+                    });
+                    
+                    // Hide select plan buttons row
+                    desktopButtonsRow.style.display = 'none';
+                    desktopSelectButtons.forEach(btn => {
+                        btn.classList.remove('visible');
+                    });
+                    
+                    desktopToggleText.textContent = packageTableData.toggleButtonText.show;
+                    desktopToggleBtn.classList.remove('expanded');
+                    desktopExpanded = false;
+                }
+            });
+            
+            // Mobile card toggle buttons functionality
+            document.addEventListener('click', function(e) {
+                // Handle mobile card toggle buttons
+                if (e.target.classList.contains('package_table-card-toggle') || 
+                    e.target.parentElement.classList.contains('package_table-card-toggle')) {
+                    
+                    const toggleBtn = e.target.classList.contains('package_table-card-toggle') ? 
+                                     e.target : e.target.parentElement;
+                    const cardIndex = toggleBtn.getAttribute('data-card-index');
+                    const toggleText = toggleBtn.querySelector('span');
+                    const hiddenSection = document.getElementById(`package_table-hidden-${cardIndex}`);
+                    const selectBtn = document.getElementById(`package_table-select-${cardIndex}`);
+                    
+                    if (hiddenSection.classList.contains('expanded')) {
+                        // Collapse
+                        hiddenSection.classList.remove('expanded');
+                        selectBtn.classList.remove('visible');
+                        toggleText.textContent = packageTableData.toggleButtonText.show;
+                        toggleBtn.classList.remove('expanded');
+                    } else {
+                        // Expand
+                        hiddenSection.classList.add('expanded');
+                        selectBtn.classList.add('visible');
+                        toggleText.textContent = packageTableData.toggleButtonText.hide;
+                        toggleBtn.classList.add('expanded');
+                    }
+                }
+                
+                // Handle desktop select plan buttons
+                if (e.target.classList.contains('package_table-select-btn-desktop')) {
+                    const buttonIndex = e.target.getAttribute('data-plan-index');
+                    const planName = packageTableData.plans[buttonIndex].name;
+                    alert(`You've selected the ${planName} plan!`);
+                    
+                    // Visual feedback
+                    e.target.style.backgroundColor = '#2e7d32';
+                    setTimeout(() => {
+                        e.target.style.backgroundColor = '#4caf50';
+                    }, 300);
+                }
+                
+                // Handle mobile select plan buttons
+                if (e.target.classList.contains('package_table-select-btn')) {
+                    const planIndex = e.target.getAttribute('data-plan-index');
+                    const planName = packageTableData.plans[planIndex].name;
+                    alert(`You've selected the ${planName} plan!`);
+                    
+                    // Visual feedback
+                    e.target.style.backgroundColor = '#2e7d32';
+                    setTimeout(() => {
+                        e.target.style.backgroundColor = '#4caf50';
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

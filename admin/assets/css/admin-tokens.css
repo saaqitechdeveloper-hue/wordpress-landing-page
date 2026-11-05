@@ -1,0 +1,115 @@
+/* ==========================================================================
+   SAAQi Tech - Obsidian Luxe Design Tokens (Antigravity Dashboard UI)
+   Custom CSS Only - Zero Framework Dependencies
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --bg-canvas: #08080c;
+    --bg-surface-1: rgba(16, 16, 24, 0.85);
+    --bg-surface-2: rgba(24, 24, 34, 0.75);
+    --bg-surface-3: rgba(32, 32, 46, 0.9);
+    --bg-glass-card: rgba(18, 16, 22, 0.72);
+    --bg-glass-hover: rgba(28, 24, 32, 0.85);
+    --bg-input: rgba(12, 12, 18, 0.85);
+    
+    /* Accents & Brand Hues */
+    --accent-primary: #ff1a40;
+    --accent-primary-hover: #ff3356;
+    --accent-glow: rgba(255, 26, 64, 0.45);
+    --accent-subtle: rgba(255, 26, 64, 0.12);
+    --accent-cyan: #38bdf8;
+    --accent-gold: #fbbf24;
+    --accent-emerald: #10b981;
+    --accent-purple: #a855f7;
+
+    /* Status Tokens */
+    --status-new-bg: rgba(255, 30, 60, 0.14);
+    --status-new-text: #ff4766;
+    --status-new-border: rgba(255, 30, 60, 0.35);
+
+    --status-contacted-bg: rgba(251, 191, 36, 0.14);
+    --status-contacted-text: #fbbf24;
+    --status-contacted-border: rgba(251, 191, 36, 0.35);
+
+    --status-converted-bg: rgba(16, 185, 129, 0.14);
+    --status-converted-text: #10b981;
+    --status-converted-border: rgba(16, 185, 129, 0.35);
+
+    --status-archived-bg: rgba(148, 163, 184, 0.12);
+    --status-archived-text: #94a3b8;
+    --status-archived-border: rgba(148, 163, 184, 0.25);
+
+    /* Text & Content */
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-inverted: #08080c;
+
+    /* Hairlines, Borders & Separators */
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --border-hairline-bright: rgba(255, 255, 255, 0.16);
+    --border-accent: rgba(255, 30, 60, 0.38);
+
+    /* Shadows & Glows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.1);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.15);
+    --shadow-glow: 0 0 30px rgba(255, 26, 64, 0.25);
+
+    /* Radii */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+    --radius-pill: 9999px;
+
+    /* Typography */
+    --font-heading: 'Kanit', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background Ambient Lighting */
+.admin-ambient-glow {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+}
+
+.ambient-top-right {
+    top: -150px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+}
+
+.ambient-bottom-left {
+    bottom: -150px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #7928ca 0%, transparent 70%);
+}

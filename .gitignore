@@ -1,0 +1,11 @@
+# Database runtime files
+admin/data/*.sqlite
+admin/data/*.sqlite-journal
+
+# Logs & temp files
+error_log
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db

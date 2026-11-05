@@ -1,0 +1,688 @@
+.package_table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.package_table-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #1a237e;
+    font-size: 2.5rem;
+}
+
+.package_table-subtitle {
+    text-align: center;
+    color: #5c6bc0;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Desktop Table */
+.package_table-desktop {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    display: none;
+}
+
+.package_table-desktop th, .package_table-desktop td {
+    padding: 18px 15px;
+    text-align: center;
+    border: 1px solid #eaeaea;
+}
+
+.package_table-desktop th {
+    background-color: #1a237e;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.package_table-desktop thead th:first-child {
+    background-color: #283593;
+    text-align: left;
+}
+
+.package_table-desktop tbody tr:first-child td {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #1a237e;
+}
+
+.package_table-desktop tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.package_table-desktop tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #1a237e;
+    background-color: #f8f9fa;
+}
+
+/* Mobile Cards Container */
+.package_table-mobile-cards {
+    display: none;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.package_table-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.package_table-card:hover {
+    transform: translateY(-5px);
+}
+
+.package_table-card-header {
+    background-color: #1a237e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.package_table-card-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.package_table-card-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.package_table-card-features {
+    padding: 20px;
+}
+
+.package_table-feature-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.package_table-feature-item:last-child {
+    border-bottom: none;
+}
+
+.package_table-feature-name {
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+}
+
+.package_table-feature-value {
+    color: #1a237e;
+    font-weight: 600;
+    text-align: right;
+    flex: 1;
+}
+
+/* Common Styles */
+.package_table-checkmark {
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.package_table-crossmark {
+    color: #f44336;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.package_table-hidden-row {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.package_table-hidden-row.visible {
+    display: table-row;
+    opacity: 1;
+}
+
+.package_table-mobile-hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.package_table-mobile-hidden.expanded {
+    max-height: 2000px;
+}
+
+/* General Toggle Button (for desktop) */
+.package_table-toggle-container {
+    text-align: center;
+    margin: 30px 0 40px;
+}
+
+.package_table-toggle-btn {
+    background-color: #3949ab;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(57, 73, 171, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.package_table-toggle-btn:hover {
+    background-color: #303f9f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(57, 73, 171, 0.4);
+}
+
+.package_table-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.package_table-toggle-btn.expanded i {
+    transform: rotate(180deg);
+}
+
+/* Mobile Card Toggle Button */
+.package_table-card-toggle {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.package_table-card-toggle:hover {
+    background-color: #3949ab;
+}
+
+.package_table-card-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.package_table-card-toggle.expanded i {
+    transform: rotate(180deg);
+}
+
+/* Select Plan Button - Initially Hidden */
+.package_table-select-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none;
+}
+
+.package_table-select-btn.visible {
+    display: block;
+}
+
+.package_table-select-btn:hover {
+    background-color: #388e3c;
+}
+
+.package_table-select-btn-desktop {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: none;
+}
+
+.package_table-select-btn-desktop.visible {
+    display: inline-block;
+}
+
+.package_table-select-btn-desktop:hover {
+    background-color: #388e3c;
+}
+
+/* Section Heading Row */
+.package_table-section-heading {
+    background-color: #e8eaf6 !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+    color: #1a237e !important;
+    text-align: center !important;
+    padding: 20px 15px !important;
+}
+
+.package_table-container h1 , .package_table-container p {
+    display: none !important;
+}
+
+.package_table-toggle-container {
+    margin: 0 !important;
+}
+
+.package_table-desktop {
+    margin: 0;
+}
+
+.package_table-desktop th {
+    background: #ea7926 !important;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800 !important;
+    color: white !important;
+    font-size: 17px !important;
+}
+
+.package_table-container {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.package_table-desktop th, .package_table-desktop td {color: #00000080;font-size: 16px;}
+
+.package_table-desktop * {
+    font-family: 'Kanit';
+}
+
+.package_table-desktop thead th:nth-child(1) {
+    border-radius: 13px 0 0 0;
+}
+
+.package_table-desktop thead th:nth-last-child(1) {
+    border-radius: 0px 13px 0 0;
+}
+
+.package_table-desktop tbody tr:first-child td {
+    color: #000000;
+    font-size: 24px;
+}
+
+.package_table-desktop tbody td:first-child {
+    color: #00000080;
+    font-size: 16px;
+}
+
+.package_table-desktop tbody tr td:nth-child(4) {
+    background: #ea7926;
+    color: #fff !important;
+}
+
+.package_table-desktop tbody tr td:nth-child(4) span {
+    color: #fff !important;
+}
+
+.package_table-section-heading {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    font-size: 22px !important;
+    text-align: left !important;
+}
+
+.package_table-select-btn-desktop {
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2em;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    background: #ea7926 !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    text-transform: uppercase;
+}
+
+.package_table-select-btn-desktop:hover {
+    background: #000 !important;
+}
+
+.package_table-desktop tbody tr td:nth-child(4) .package_table-select-btn-desktop {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.package_table-desktop tbody tr td:nth-child(4) .package_table-select-btn-desktop:hover {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.package_table-desktop tr td+td {
+    --size: 250px;
+    max-width: var(--size);
+    min-width: var(--size);
+    width: var(--size);
+}
+
+#packages {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.package_table-toggle-btn {
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2em;
+    color: #FFFFFF;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background: #ea7926 !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.package_table-toggle-btn:before {
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000000;
+    transition: 0.3s ease-in-out all;
+    transform: translateY(100%);
+}
+
+.package_table-toggle-btn i {
+    display: none;
+}
+
+.package_table-toggle-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+.package_table-toggle-btn:hover:before {
+    transform: translateY(0px);
+}
+
+/* Responsive Design */
+@media (min-width: 992px) {
+    .package_table-desktop {
+        display: table;
+    }
+    
+    .package_table-mobile-cards {
+        display: none !important;
+    }
+    
+    .package_table-toggle-container {
+        display: block;
+    }
+    
+    .package_table-card-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .package_table-desktop {
+        display: none;
+    }
+    
+    .package_table-mobile-cards {
+        display: flex;
+    }
+    
+    .package_table-toggle-container {
+        display: none;
+    }
+    
+    .package_table-card-toggle {
+        display: flex;
+    }
+
+    #packages {
+        gap: 30px;
+    }
+
+    .package_table-card-header {
+        background: #ea7926 !important;
+        padding: 14px !important;
+        font-family: 'Montserrat';
+        font-weight: 600 !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .package_table-mobile-cards {
+        padding: 0 15px;
+    }
+
+    .package_table-card-header h3 {
+        font-size: 16px !important;
+        font-weight: 800;
+        margin: 0;
+        text-align: left;
+        max-width: 150px;
+    }
+
+    .package_table-card-header .package_table-card-price {
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 18px;
+    }
+
+    .package_table-card-features {
+        padding: 15px !important;
+    }
+
+    .package_table-feature-item {
+        padding: 12px 0;
+    }
+
+    .package_table-card-features * {
+        font-family: 'Kanit';
+        font-weight: 400;
+        font-size: 14px !important;
+    }
+
+    .package_table-card-features .package_table-feature-value {
+        color: #000000b0;
+    }
+
+    .package_table-card-features .package_table-card-toggle {
+        border: 2px solid #FFFFFF;
+        border-radius: 50px;
+        padding: 14px 20px;
+        font-family: 'Kanit';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.2em;
+        color: #FFFFFF !important;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        background: #ea7926 !important;
+        border: 2px solid #fff !important;
+        color: #fff !important;
+        margin-bottom: 0 !important;
+    }
+
+    .package_table-card-features  .package_table-feature-name {
+        color: #000 !important;
+    }
+
+    .package_table-section-title {
+        color: #000 !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        text-align: center;
+        margin-top: 15px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .package_table-value-added * {
+        font-family: 'Kanit';
+        text-align: left !important;
+        display: block;
+        color: #000 !important;
+    }
+
+    .package_table-value-added h4 {
+        color: #ea7926 !important;
+        font-weight: 500 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .package_table-select-btn {
+        border: 2px solid #FFFFFF;
+        border-radius: 50px;
+        padding: 14px 20px;
+        font-family: 'Kanit';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.2em;
+        color: #FFFFFF !important;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        background: #000000 !important;
+        border: 2px solid #000000 !important;
+        color: #ffffff !important;
+        margin-bottom: 0 !important;
+        margin-top: 10px;
+    }
+
+    #package_table-card-2 {
+        background: #ea7926;
+    }
+
+    #package_table-card-2 .package_table-card-header {
+        background: #000 !important;
+    }
+
+    #package_table-card-2  .package_table-feature-name {
+        color: #fff !important;
+    }
+
+    #package_table-card-2  .package_table-feature-value {
+        color: #e4e4e4 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .package_table-title {
+        font-size: 2rem;
+    }
+    
+    .package_table-subtitle {
+        font-size: 1rem;
+    }
+    
+    .package_table-toggle-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .package_table-card-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .package_table-card-price {
+        font-size: 2rem;
+    }
+}
+
+.package_table-section-title {
+    font-weight: bold;
+    color: #1a237e;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a237e;
+}
+
+.package_table-value-added {
+    background-color: #e8eaf6;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.package_table-value-added h4 {
+    color: #1a237e;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.package_table-value-added-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #c5cae9;
+    display: flex;
+    align-items: center;
+}
+
+.package_table-value-added-item:last-child {
+    border-bottom: none;
+}
+
+.package_table-value-added-item i {
+    color: #4caf50;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}

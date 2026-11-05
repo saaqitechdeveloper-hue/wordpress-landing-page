@@ -1,0 +1,1592 @@
+/* ==========================================================================
+   SAAQi Tech - Winter Sale 2026 Stylesheet
+   50% OFF WordPress Websites Promotion
+   ========================================================================== */
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+:root {
+    --winter-red-primary: #ff1a40;
+    --winter-red-secondary: #ff472e;
+    --winter-red-glow: rgba(255, 26, 64, 0.45);
+    --winter-dark-bg: #0d0d11;
+    --winter-card-bg: rgba(20, 14, 18, 0.88);
+    --winter-card-border: rgba(255, 30, 60, 0.42);
+    --winter-gold: #ffd166;
+    --winter-cyan: #4cc9f0;
+}
+
+/* ==========================================================================
+   1. TOP ANNOUNCEMENT BAR (Redesigned: High-End Agency Standard)
+   ========================================================================== */
+.winter-announcement-bar {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    min-height: 42px;
+    background: linear-gradient(90deg, #2b0007 0%, #5c000f 25%, #940019 50%, #5c000f 75%, #2b0007 100%);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 45, 75, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    box-sizing: border-box;
+}
+
+.winter-announcement-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.winter-announcement-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.announcement-snow-svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    opacity: 0.9;
+    stroke: #b3eeff;
+    animation: gentleSnowSpin 14s linear infinite;
+}
+
+@keyframes gentleSnowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.announcement-spark-svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    fill: #ffd166;
+    animation: sparkPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes sparkPulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+.announcement-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.announcement-highlight {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 18px rgba(255, 40, 70, 0.85);
+}
+
+.announcement-sub {
+    font-family: 'Kanit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: #ffe1e6;
+    letter-spacing: 0.2px;
+}
+
+.announcement-cta-capsule {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3.5px 12px;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-cta-capsule:hover {
+    background: #ffffff;
+    color: #8c0012;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.announcement-cta-capsule svg {
+    transition: transform 0.2s ease;
+}
+
+.announcement-cta-capsule:hover svg {
+    transform: translateX(2px);
+}
+
+/* ==========================================================================
+   HEADER & ANNOUNCEMENT BAR FLUID INTEGRATION
+   ========================================================================== */
+header {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    z-index: 25 !important;
+    padding: 16px 0;
+    margin-bottom: -76px; /* Seamless overlay on top of #hero-banner wallpaper */
+    background: transparent;
+}
+
+header .ct-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .ct-container .logo img {
+    height: 48px;
+    width: auto;
+    max-width: 165px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .winter-announcement-bar {
+        min-height: 38px;
+        padding: 6px 12px;
+    }
+    .winter-announcement-container {
+        gap: 8px 12px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .winter-announcement-content {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .announcement-heading {
+        font-size: 12px;
+    }
+    .announcement-highlight {
+        font-size: 11.5px;
+        padding: 1.5px 6px;
+    }
+    .announcement-sub {
+        font-size: 11px;
+    }
+    .announcement-cta-capsule {
+        font-size: 10px;
+        padding: 3px 10px;
+    }
+    header {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        padding: 12px 0;
+        margin-bottom: -62px;
+    }
+    header .ct-container .logo img {
+        width: 145px;
+        height: auto;
+        max-height: 44px;
+        object-fit: contain;
+    }
+    header .ct-container .chat-btn .theme-btn {
+        font-size: 11px;
+        padding: 8px 16px;
+        letter-spacing: 0.5px;
+    }
+    #hero-banner {
+        overflow: visible !important;
+    }
+    #hero-banner .orange-element {
+        width: 220px;
+        opacity: 0.45;
+        pointer-events: none;
+        top: -10px;
+        right: -30px;
+    }
+}
+
+@media (max-width: 520px) {
+    .winter-announcement-bar {
+        min-height: 36px;
+        padding: 5px 10px;
+    }
+    .winter-announcement-container {
+        gap: 8px;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .winter-announcement-content {
+        gap: 6px;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    .announcement-heading {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+    .announcement-highlight {
+        font-size: 11px;
+        padding: 1px 5px;
+        white-space: nowrap;
+    }
+    .announcement-sub {
+        display: none; /* Keeps the announcement bar on a single sleek line on narrow mobile */
+    }
+    .announcement-cta-capsule {
+        font-size: 9.5px;
+        padding: 2.5px 8px;
+        white-space: nowrap;
+    }
+    header {
+        padding: 10px 0;
+        margin-bottom: -56px;
+    }
+    header .ct-container .logo img {
+        width: 135px;
+        max-height: 40px;
+        height: auto;
+        object-fit: contain;
+    }
+    header .ct-container .chat-btn .theme-btn {
+        font-size: 10px;
+        padding: 7px 12px;
+    }
+}
+
+/* ==========================================================================
+   2. HERO WINTER SALE ENHANCEMENTS
+   ========================================================================== */
+.winter-super-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 100px;
+    padding: 7px 20px;
+    color: #f0f0f5;
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    margin: 0 auto 16px auto;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.winter-super-badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 51, 88, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 51, 88, 0.18);
+    transform: translateY(-1px);
+}
+
+.winter-super-badge .badge-snowflake {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    stroke: #ff3358;
+}
+
+.winter-super-badge .badge-tag {
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.winter-super-badge .badge-divider {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.winter-super-badge .badge-sub {
+    color: #ffb8c4;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.winter-hero-title {
+    font-size: 68px !important;
+    line-height: 1.15em !important;
+    font-weight: 900 !important;
+    margin-bottom: 8px;
+}
+
+.winter-gradient-text {
+    background: linear-gradient(135deg, #ff1a40 0%, #ff4d2e 60%, #ffa133 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    text-shadow: 0 0 35px rgba(255, 26, 64, 0.35);
+}
+
+.winter-hero-subtitle {
+    font-family: 'Kanit', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #f0f0f5;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+}
+
+.winter-hero-subtitle .hero-price-tag {
+    color: #ff2a4b;
+    font-weight: 800;
+    font-size: 32px;
+    text-shadow: 0 0 15px rgba(255, 42, 75, 0.5);
+}
+
+.winter-hero-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    color: #c4c4cc;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 15px auto;
+}
+
+.winter-hero-desc em {
+    color: #ff9eaf;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   3. COUNTDOWN TIMERS (HERO & BANNER)
+   ========================================================================== */
+.winter-countdown-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 8px auto 16px auto;
+}
+
+.winter-countdown-label {
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffccd4;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pulse-red-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff1a40;
+    box-shadow: 0 0 10px #ff1a40;
+    animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.3); }
+}
+
+.winter-countdown-boxes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.winter-time-box {
+    background: rgba(22, 16, 20, 0.85);
+    border: 1.5px solid rgba(255, 30, 60, 0.45);
+    border-radius: 12px;
+    min-width: 68px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(255, 26, 64, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.winter-time-box .time-val {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.winter-time-box .time-unit {
+    font-family: 'Kanit', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: #ff99aa;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+}
+
+.winter-countdown-sep {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff2a4b;
+    margin: 0 2px;
+    line-height: 1;
+}
+
+/* Hero CTA Buttons */
+.winter-hero-cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.winter-btn-primary {
+    background: linear-gradient(135deg, #ff1a40 0%, #ff492e 100%);
+    border: 2px solid #ff2a4b;
+    border-radius: 50px;
+    padding: 15px 36px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 25px rgba(255, 26, 64, 0.45);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.winter-btn-primary:hover {
+    background: linear-gradient(135deg, #ff3356 0%, #ff6245 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 26, 64, 0.65);
+    color: #ffffff;
+}
+
+.winter-btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    padding: 15px 36px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.winter-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   4. WINTER SALE FORM
+   ========================================================================= */
+.winter-form-card {
+    background: linear-gradient(180deg, rgba(22, 16, 20, 0.92) 0%, rgba(14, 12, 16, 0.96) 100%);
+    border: 1.5px solid rgba(255, 30, 60, 0.45);
+    border-radius: 26px;
+    padding: 35px 35px 30px 35px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 20, 50, 0.2);
+    backdrop-filter: blur(14px);
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.winter-form-card.highlight-focus {
+    border-color: #ff2a4b;
+    box-shadow: 0 0 50px rgba(255, 42, 75, 0.6);
+}
+
+.winter-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.winter-form-title h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+.winter-form-title p {
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    color: #ffccd4;
+    font-weight: 400;
+}
+
+.winter-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.winter-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.winter-field-group label {
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e5e5eb;
+    letter-spacing: 0.3px;
+}
+
+.winter-input-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.winter-form-card input,
+.winter-form-card select {
+    width: 100%;
+    height: 54px;
+    border: 1.5px solid rgba(255, 40, 70, 0.4);
+    border-radius: 12px;
+    background: rgba(28, 22, 26, 0.85);
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 0 18px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.winter-form-card input::placeholder {
+    color: #9999a5;
+    font-weight: 400;
+}
+
+.winter-form-card select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1.5L7 7.5L13 1.5' stroke='%23ff3859' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 16px) center;
+    padding-right: 42px;
+}
+
+.winter-form-card select option {
+    background: #18151b;
+    color: #ffffff;
+    padding: 12px;
+}
+
+.winter-form-card input:focus,
+.winter-form-card select:focus {
+    border-color: #ff2a4b;
+    background: rgba(36, 26, 32, 0.95);
+    box-shadow: 0 0 18px rgba(255, 42, 75, 0.4);
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================================
+   CUSTOM DROPDOWN UI (UL / LI / SPAN) WITH ANIMATED ROTATING ARROW
+   ========================================================================== */
+.winter-custom-select {
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+
+/* Native hidden select for form submission, accessibility & required validation */
+.winter-hidden-select {
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 1px !important;
+    height: 1px !important;
+    top: 50% !important;
+    left: 50% !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: -1 !important;
+}
+
+/* The Trigger Capsule */
+.winter-select-trigger {
+    width: 100%;
+    height: 54px;
+    border: 1.5px solid rgba(255, 40, 70, 0.4);
+    border-radius: 12px;
+    background: rgba(28, 22, 26, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.winter-select-trigger:hover {
+    border-color: rgba(255, 59, 48, 0.75);
+    background: rgba(34, 25, 30, 0.95);
+}
+
+.winter-custom-select.active .winter-select-trigger,
+.winter-select-trigger:focus-visible {
+    border-color: #ff2a4b;
+    background: rgba(36, 26, 32, 0.98);
+    box-shadow: 0 0 20px rgba(255, 42, 75, 0.45);
+}
+
+/* Text label inside trigger */
+.winter-select-text {
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 12px;
+}
+
+.winter-select-text.placeholder {
+    color: #9999a5;
+    font-weight: 400;
+}
+
+/* Chevron Arrow: NEVER disappears, smoothly flips 180deg */
+.winter-select-arrow {
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.25s ease;
+    display: block;
+    stroke: #ff3859;
+}
+
+.winter-custom-select.active .winter-select-arrow {
+    transform: rotate(180deg);
+    stroke: #ff5e47;
+}
+
+/* The Options Dropdown (UL) */
+.winter-select-options {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #181419;
+    border: 1.5px solid rgba(255, 42, 75, 0.55);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), 0 0 24px rgba(255, 42, 75, 0.25);
+    padding: 6px;
+    margin: 0;
+    list-style: none;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.winter-custom-select.active .winter-select-options {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+.winter-select-options::-webkit-scrollbar {
+    width: 5px;
+}
+.winter-select-options::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.winter-select-options::-webkit-scrollbar-thumb {
+    background: rgba(255, 42, 75, 0.45);
+    border-radius: 4px;
+}
+
+/* Individual Options (LI) */
+.winter-select-option {
+    font-family: 'Kanit', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.winter-select-option:hover {
+    background: linear-gradient(90deg, rgba(255, 42, 75, 0.25), rgba(255, 71, 46, 0.12));
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.winter-select-option.selected {
+    background: rgba(255, 42, 75, 0.22);
+    color: #ff3b30;
+    font-weight: 600;
+}
+
+.winter-submit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.winter-form-submit-btn {
+    width: 100%;
+    max-width: 440px;
+    height: 56px;
+    background: linear-gradient(135deg, #ff1a40 0%, #ff472e 100%);
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 6px 25px rgba(255, 26, 64, 0.5);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.winter-form-submit-btn:hover {
+    background: linear-gradient(135deg, #ff3356 0%, #ff5e47 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255, 26, 64, 0.7);
+}
+
+.winter-form-trust {
+    font-family: 'Kanit', sans-serif;
+    font-size: 12px;
+    color: #a8a8b4;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (max-width: 900px) {
+    .winter-form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .winter-form-card {
+        padding: 24px 18px;
+    }
+    .winter-hero-title {
+        font-size: 44px !important;
+    }
+}
+
+/* ==========================================================================
+   5. WINTER SALE PACKAGES SECTION (Pixel-matching Reference Image)
+   ========================================================================== */
+#hero-banner {
+    padding-bottom: 235px !important;
+}
+
+#winter-packages-section {
+    position: relative;
+    z-index: 5;
+    margin-top: 0px !important;
+    padding: 55px 0 80px 0;
+    background: #09090c;
+    overflow: hidden;
+}
+
+#cta {
+    margin-top: 0 !important;
+}
+
+@media (max-width: 900px) {
+    #hero-banner {
+        padding-bottom: 20px !important;
+        overflow: visible !important;
+    }
+    .portfolio-slider {
+        margin-bottom: 0px !important;
+        margin-top: 20px;
+        height: 490px !important;
+        overflow: hidden;
+    }
+    .portfolio-slider:before {
+        width: 320px !important;
+        max-width: 90vw !important;
+        height: 485px !important;
+        background-size: contain !important;
+        background-position: center top !important;
+        top: 0 !important;
+    }
+    .portfolio-slider .swiper-slide img {
+        width: 275px !important;
+        max-width: 78vw !important;
+        height: 415px !important;
+        object-fit: cover !important;
+        border-radius: 28px !important;
+        top: 18px !important;
+        margin: 0 auto !important;
+    }
+    .portfolio-slider .swiper-slide.swiper-slide-active,
+    .portfolio-slider .swiper-slide.active {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        filter: blur(0px) !important;
+        -webkit-filter: blur(0px) !important;
+        position: relative !important;
+        overflow: visible !important;
+        z-index: 4 !important;
+    }
+    .portfolio-slider .swiper-slide.swiper-slide-active img,
+    .portfolio-slider .swiper-slide.active img {
+        height: 415px !important;
+        filter: blur(0px) !important;
+        -webkit-filter: blur(0px) !important;
+        opacity: 1 !important;
+    }
+    #winter-packages-section {
+        margin-top: 0px !important;
+        padding: 20px 0 65px 0;
+        position: relative;
+        z-index: 5;
+    }
+}
+
+@media (max-width: 600px) {
+    #hero-banner {
+        padding-top: 95px !important;
+        padding-bottom: 15px !important;
+        overflow: visible !important;
+    }
+    .portfolio-slider {
+        margin-bottom: 0px !important;
+        margin-top: 15px;
+        height: 450px !important;
+        overflow: hidden;
+    }
+    .portfolio-slider:before {
+        width: 295px !important;
+        max-width: 88vw !important;
+        height: 445px !important;
+        background-size: contain !important;
+        background-position: center top !important;
+        top: 0 !important;
+    }
+    .portfolio-slider .swiper-slide img {
+        width: 252px !important;
+        max-width: 76vw !important;
+        height: 380px !important;
+        object-fit: cover !important;
+        border-radius: 24px !important;
+        top: 16px !important;
+        margin: 0 auto !important;
+    }
+    .portfolio-slider .swiper-slide.swiper-slide-active,
+    .portfolio-slider .swiper-slide.active {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        filter: blur(0px) !important;
+        -webkit-filter: blur(0px) !important;
+        position: relative !important;
+        overflow: visible !important;
+        z-index: 4 !important;
+    }
+    .portfolio-slider .swiper-slide.swiper-slide-active img,
+    .portfolio-slider .swiper-slide.active img {
+        height: 380px !important;
+        filter: blur(0px) !important;
+        -webkit-filter: blur(0px) !important;
+        opacity: 1 !important;
+    }
+    .winter-super-badge {
+        padding: 5px 14px;
+        font-size: 11px;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    .winter-hero-title {
+        font-size: 32px !important;
+        line-height: 1.18em !important;
+        margin-bottom: 8px;
+    }
+    .winter-hero-subtitle {
+        font-size: 16px;
+        line-height: 1.35em;
+        margin-bottom: 16px;
+    }
+    .winter-hero-subtitle .hero-price-tag {
+        font-size: 22px;
+    }
+    .winter-form-card {
+        padding: 22px 16px;
+        border-radius: 20px;
+    }
+    .winter-form-title h3 {
+        font-size: 19px;
+        line-height: 1.3em;
+    }
+    .winter-form-card input,
+    .winter-form-card select,
+    .winter-select-trigger {
+        height: 48px;
+        font-size: 14px;
+    }
+    .winter-form-submit-btn {
+        height: 50px;
+        font-size: 16px;
+    }
+    #winter-packages-section {
+        margin-top: 0px !important;
+        padding: 16px 0 50px 0;
+        position: relative;
+        z-index: 5;
+    }
+    .winter-sec-header {
+        margin-bottom: 30px;
+    }
+    .winter-center-snowflake {
+        margin: 0 auto 8px auto;
+    }
+}
+
+/* Background ambient aurora and delicate snowflakes */
+.winter-packages-bg-effects {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.aurora-wave {
+    position: absolute;
+    width: 140%;
+    height: 250px;
+    left: -20%;
+    background: radial-gradient(ellipse at center, rgba(255, 26, 64, 0.12) 0%, rgba(255, 26, 64, 0) 70%);
+    filter: blur(40px);
+}
+.aurora-wave.top { top: -60px; }
+.aurora-wave.bottom { bottom: -60px; }
+
+.winter-sec-header {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    margin-bottom: 50px;
+}
+
+.winter-center-snowflake {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 12px auto;
+    color: #ffffff;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    animation: spinSlow 20s linear infinite;
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.winter-sec-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.winter-sec-title span {
+    color: #ff1f3d;
+    text-shadow: 0 0 25px rgba(255, 31, 61, 0.5);
+}
+
+.winter-sec-subtitle {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #d8d8e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    letter-spacing: 0.5px;
+}
+
+.winter-sec-subtitle .sec-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* The 4-Cards Grid */
+.winter-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1080px;
+    margin: 0 auto;
+    gap: 24px;
+    position: relative;
+    z-index: 3;
+}
+
+.winter-package-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(22, 14, 18, 0.94) 0%, rgba(12, 12, 15, 0.97) 100%);
+    border: 1.5px solid rgba(255, 30, 60, 0.42);
+    border-radius: 22px;
+    padding: 28px 20px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 20, 50, 0.15);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.winter-package-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 45, 75, 0.95);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 30, 65, 0.4);
+}
+
+.winter-card-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 99 !important;
+    pointer-events: none;
+    background: linear-gradient(135deg, #ff1a40, #ff3d2b);
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(255, 26, 64, 0.5);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.winter-card-icon {
+    width: 140px;
+    height: 95px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.winter-card-icon picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.winter-card-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
+    transition: transform 0.35s ease;
+}
+
+.winter-package-card:hover .winter-card-icon img {
+    transform: scale(1.06);
+}
+
+.winter-card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.25;
+    margin-bottom: 6px;
+}
+
+.winter-card-price-box {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.winter-old-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #888894;
+    text-decoration: line-through;
+    font-weight: 600;
+}
+
+.winter-new-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: #ff1f3d;
+    line-height: 1;
+    margin-top: 2px;
+    text-shadow: 0 0 20px rgba(255, 31, 61, 0.45);
+}
+
+.winter-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 22px auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.winter-card-features li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 13.5px;
+    color: #d2d2dc;
+    font-weight: 400;
+    text-align: center;
+}
+
+.winter-feature-check {
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    border-radius: 50%;
+    background: #ff1f3d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 31, 61, 0.4);
+}
+
+.winter-feature-check svg {
+    width: 10px;
+    height: 10px;
+}
+
+.winter-card-deal-btn {
+    width: 100%;
+    height: 46px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff1a40 0%, #ff3b26 100%);
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 26, 64, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.winter-card-deal-btn:hover {
+    background: linear-gradient(135deg, #ff3356 0%, #ff573d 100%);
+    box-shadow: 0 6px 22px rgba(255, 26, 64, 0.6);
+    transform: scale(1.02);
+    color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+    .winter-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    .winter-cards-grid > .winter-package-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: 360px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .winter-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    .winter-cards-grid > .winter-package-card:nth-child(3) {
+        grid-column: auto;
+        max-width: 100%;
+    }
+    .winter-sec-title {
+        font-size: 32px;
+    }
+}
+
+/* ==========================================================================
+   6. COUNTDOWN URGENCY BANNER (Offer Ends Dec 31, 2026)
+   ========================================================================== */
+#winter-urgency-banner {
+    position: relative;
+    z-index: 5;
+    background: linear-gradient(135deg, #2a0006 0%, #54000f 35%, #7a0016 70%, #2a0006 100%);
+    border-top: 1.5px solid rgba(255, 40, 70, 0.45);
+    border-bottom: 1.5px solid rgba(255, 40, 70, 0.45);
+    box-shadow: 0 0 40px rgba(122, 0, 22, 0.45);
+    padding: 60px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.urgency-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    z-index: 3;
+}
+
+.urgency-badge {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+    padding: 6px 18px;
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.urgency-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.urgency-sub {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    color: #ffccd4;
+    font-weight: 500;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.urgency-sub strong {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Spots Left Progress bar */
+.urgency-progress-wrap {
+    width: 100%;
+    max-width: 450px;
+    margin: 5px auto 10px auto;
+}
+
+.urgency-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffe6eb;
+    margin-bottom: 6px;
+}
+
+.urgency-progress-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.urgency-progress-fill {
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff7b00, #ff1a40);
+    border-radius: 10px;
+    box-shadow: 0 0 12px #ff1a40;
+    animation: barPulse 2s ease-in-out infinite;
+}
+
+@keyframes barPulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; filter: brightness(1.2); }
+}
+
+.urgency-book-btn {
+    background: #ffffff;
+    color: #a30016;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 42px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.urgency-book-btn:hover {
+    background: #ffe3e7;
+    color: #7a0010;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .urgency-heading {
+        font-size: 26px;
+    }
+    .urgency-sub {
+        font-size: 15px;
+    }
+}
+
+/* ==========================================================================
+   7. CTA-2 WINTER SALE STYLING
+   ========================================================================== */
+.winter-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.winter-badge-pill {
+    background: rgba(255, 26, 64, 0.2);
+    border: 1.5px solid rgba(255, 30, 60, 0.5);
+    border-radius: 50px;
+    padding: 5px 18px;
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.winter-cta-sub {
+    font-family: 'Kanit', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 5px 0 2px 0;
+}
+
+.winter-cta-concept {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #ff99aa;
+    margin-bottom: 12px;
+}
+
+.winter-whatsapp-btn {
+    background: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #ffffff !important;
+}
+
+.winter-whatsapp-btn:hover {
+    background: #1ebc57 !important;
+    border-color: #1ebc57 !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45) !important;
+}
+
+/* ==========================================================================
+   8. FOOTER WINTER SALE CTA STRIP
+   ========================================================================== */
+.winter-ft-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    background: linear-gradient(135deg, #ff1a40, #ff472e) !important;
+    padding: 12px 24px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    font-family: 'Kanit', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    width: auto !important;
+    height: auto !important;
+    box-shadow: 0 4px 18px rgba(255, 26, 64, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+.winter-ft-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 24px rgba(255, 26, 64, 0.6) !important;
+    background: linear-gradient(135deg, #ff3356, #ff5e47) !important;
+}
+
+/* ==========================================================================
+   LENIS SMOOTH SCROLL INTEGRATION
+   ========================================================================== */
+html.lenis, html.lenis body {
+    height: auto;
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+
+/* ==========================================================================
+   MOBILE FOOTER LOGO & DECORATION OPTIMIZATION
+   ========================================================================== */
+@media (max-width: 768px) {
+    footer .ft-logo {
+        width: 135px !important;
+        max-width: 48% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 14px auto 20px auto !important;
+        position: relative !important;
+        z-index: 5 !important;
+    }
+    footer .traingle-element:nth-child(1) {
+        opacity: 0.15 !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+        right: 2% !important;
+        bottom: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    footer .ft-logo {
+        width: 125px !important;
+        max-width: 45% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 12px auto 18px auto !important;
+        position: relative !important;
+        z-index: 5 !important;
+    }
+}
