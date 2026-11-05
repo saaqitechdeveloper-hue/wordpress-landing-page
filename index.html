@@ -68,21 +68,15 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5WS7JJQ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- Global Snowfall with Depth & Parallax (Pure CSS GPU-Optimized - Zero Lag) -->
-    <div class="global-snowfall" aria-hidden="true">
-        <div class="snow-drift drift-far">
-            <div class="snow-layer snow-layer-far"></div>
-        </div>
-        <div class="snow-drift drift-mid">
-            <div class="snow-layer snow-layer-mid"></div>
-        </div>
-        <div class="snow-drift drift-near">
-            <div class="snow-layer snow-layer-near"></div>
-        </div>
-    </div>
-  
+    <!-- End Google Tag Manager (noscript) -->  
     <main id="main">
+        <!-- Document Snow Rain Effect (Natural Flow from Top Across Entire Page, Non-Fixed) -->
+        <div class="page-snow-rain" aria-hidden="true">
+            <div class="snow-rain-layer layer-far"></div>
+            <div class="snow-rain-layer layer-mid"></div>
+            <div class="snow-rain-layer layer-near"></div>
+        </div>
+
 
         <!-- ============================================================
              1. TOP ANNOUNCEMENT BAR (Sleek Vector & Glowing Typography)
@@ -121,6 +115,115 @@
             <video class="hero-banner-gif" autoplay loop muted playsinline poster="assets/img/hero-banner.avif">
                 <source src="assets/img/hero-banner-video.mp4" type="video/mp4">
             </video>
+
+
+            <div class="ct-container" id="form-link">
+                <div class="heading">
+                    <!-- Super Headline Badge (High-end Vector & Glass) -->
+                    <div class="winter-super-badge animate__animated animate__fadeInDown">
+                        <span class="badge-tag">Winter Sale</span>
+                        <span class="badge-divider"></span>
+                        <span class="badge-sub">Limited Time Offer</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="theme-heading winter-hero-title animate__animated animate__fadeInUp">
+                        <span class="winter-gradient-text">50% OFF</span><br>Custom Website Design
+                    </h1>
+
+                    <!-- Sub Headline -->
+                    <h2 class="winter-hero-subtitle animate__animated animate__fadeInUp">
+                        WordPress Websites Starting at Just <span class="hero-price-tag">$599</span>
+                    </h2>
+
+                </div>
+
+                <!-- 3. HERO FORM -->
+                <div class="winter-form-card animate__animated animate__fadeInDown">
+                    <div class="winter-form-title">
+                        <h3>Grab the Winter Sale Deal Fill Below!</h3>
+                    </div>
+                    <form method="post" id="winterSaleForm">
+                        <div class="winter-form-grid">
+                            <div class="winter-field-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="winter-field-group">
+                                <label for="phone">Phone / WhatsApp *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (770) 884-7207" required>
+                            </div>
+                            <div class="winter-field-group">
+                                <label for="email">Business Email *</label>
+                                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                            </div>
+                        </div>
+                        <div class="winter-form-grid">
+                            <div class="winter-field-group">
+                                <label for="website_type">Website Type *</label>
+                                <div class="winter-custom-select" id="custom_select_website_type">
+                                    <select id="website_type" name="website_type" class="winter-hidden-select" required tabindex="-1">
+                                        <option value="" disabled selected>Select Website Type</option>
+                                        <option value="WordPress">WordPress</option>
+                                        <option value="Custom WordPress">Custom WordPress</option>
+                                        <option value="WordPress + AI">WordPress + AI</option>
+
+                                    </select>
+                                    <div class="winter-select-trigger" tabindex="0" role="combobox" aria-expanded="false">
+                                        <span class="winter-select-text placeholder">Select Website Type</span>
+                                        <svg class="winter-select-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ff3859" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </div>
+                                    <ul class="winter-select-options" role="listbox">
+                                        <li class="winter-select-option" data-value="WordPress" role="option">WordPress</li>
+                                        <li class="winter-select-option" data-value="Custom WordPress" role="option">Custom WordPress</li>
+                                        <li class="winter-select-option" data-value="WordPress + AI" role="option">WordPress + AI</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="winter-field-group">
+                                <label for="business">Business Niche *</label>
+                                <input type="text" id="business" name="business" placeholder="e.g. Real Estate, E-Commerce, Agency" required>
+                            </div>
+                            <div class="winter-field-group">
+                                <label for="message">Message (Optional)</label>
+                                <input type="text" id="message" name="message" placeholder="Describe your project or vision (optional)">
+                            </div>
+                        </div>
+                        <!-- Honeypot field for spam protection -->
+                        <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off">
+                        
+                        <div class="winter-submit-container">
+                            <button type="submit" class="winter-form-submit-btn">
+                                <span>Claim My 50% OFF &rarr;</span>
+                            </button>
+                            <span class="winter-form-trust">
+                                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                100% Privacy Protected &bull; Instant WhatsApp Response &bull; No Obligation
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="portfolio-slider swiper">
+                    <div class="slider-wrapper swiper-wrapper">
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-1.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-2.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-3.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-4.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-5.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-6.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-7.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-8.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-11.avif" alt="portfolio-img"></div>
+                        <div class="item swiper-slide"><img src="assets/img/portfolio-12.avif" alt="portfolio-img"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         
