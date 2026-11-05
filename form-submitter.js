@@ -74,6 +74,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 const result = await response.json();
                 
                 if(result.success) {
+                    // Track Conversion in GTM, GA4, and Meta Pixel
+                    try {
+                        if (typeof window.dataLayer !== 'undefined') {
+                            window.dataLayer.push({
+                                event: 'generate_lead',
+                                form_name: 'winter_sale_form',
+                                service_type: formData.website_type || 'WordPress'
+                            });
+                        }
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', {
+                                event_category: 'Leads',
+                                event_label: formData.website_type || 'WordPress Website',
+                                value: 599
+                            });
+                        }
+                        if (typeof fbq === 'function') {
+                            fbq('track', 'Lead');
+                        }
+                    } catch (trackErr) {
+                        console.warn('Analytics tracking error:', trackErr);
+                    }
+
                     Swal.fire({
                         icon: 'success',
                         title: 'Deal Claimed Successfully!',
