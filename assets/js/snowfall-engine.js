@@ -51,26 +51,26 @@
                 // Tier 0: Far / Fine Snow Rain (Gentle, subtle background)
                 tier = 0;
                 radius = Math.random() * 0.7 + 1.0;     // 1.0px - 1.7px
-                speedY = Math.random() * 0.8 + 1.8;     // 1.8 - 2.6 px/frame
+                speedY = Math.random() * 0.35 + 0.45;   // 0.45 - 0.80 px/frame (Calm, gentle fall)
                 alpha = Math.random() * 0.2 + 0.45;     // 0.45 - 0.65
-                swayWidth = Math.random() * 0.5 + 0.2;
-                swaySpeed = Math.random() * 0.015 + 0.01;
+                swayWidth = Math.random() * 0.4 + 0.2;
+                swaySpeed = Math.random() * 0.008 + 0.005;
             } else if (tierRand < 0.80) {
                 // Tier 1: Mid / Crisp Snow Rain (Distinct, clear snowflakes)
                 tier = 1;
                 radius = Math.random() * 1.0 + 1.8;     // 1.8px - 2.8px
-                speedY = Math.random() * 1.0 + 2.4;     // 2.4 - 3.4 px/frame
+                speedY = Math.random() * 0.45 + 0.70;   // 0.70 - 1.15 px/frame (Peaceful mid layer)
                 alpha = Math.random() * 0.15 + 0.70;    // 0.70 - 0.85
-                swayWidth = Math.random() * 0.8 + 0.4;
-                swaySpeed = Math.random() * 0.02 + 0.015;
+                swayWidth = Math.random() * 0.6 + 0.3;
+                swaySpeed = Math.random() * 0.012 + 0.008;
             } else {
                 // Tier 2: Near / Soft Glowing Snow Flakes (Foreground bokeh highlights)
                 tier = 2;
                 radius = Math.random() * 1.4 + 2.8;     // 2.8px - 4.2px
-                speedY = Math.random() * 1.2 + 3.0;     // 3.0 - 4.2 px/frame
+                speedY = Math.random() * 0.50 + 1.00;   // 1.00 - 1.50 px/frame (Soft floating foreground)
                 alpha = Math.random() * 0.15 + 0.85;    // 0.85 - 1.00
-                swayWidth = Math.random() * 1.2 + 0.6;
-                swaySpeed = Math.random() * 0.025 + 0.015;
+                swayWidth = Math.random() * 0.8 + 0.4;
+                swaySpeed = Math.random() * 0.015 + 0.010;
             }
 
             p.x = Math.random() * (width + 80) - 40;
@@ -83,7 +83,7 @@
             p.swaySpeed = swaySpeed;
             p.swayWidth = swayWidth;
             // Subtle horizontal breeze drift
-            p.wind = 0.45;
+            p.wind = 0.18;
         }
 
         function resize() {

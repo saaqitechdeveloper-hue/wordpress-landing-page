@@ -7,11 +7,12 @@
 html {
     scroll-behavior: auto !important;
     overflow-x: hidden;
+    overflow-y: auto !important;
 }
 
 body {
     min-height: 100%;
-    overflow-x: hidden;
+    overflow: hidden !important;
     max-width: 100%;
     position: relative;
     -webkit-font-smoothing: antialiased;

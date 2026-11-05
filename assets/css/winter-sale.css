@@ -3,8 +3,14 @@
    50% OFF WordPress Websites Promotion
    ========================================================================== */
 
-html, body {
+html {
     overflow-x: hidden;
+    overflow-y: auto !important;
+    max-width: 100vw;
+}
+
+body {
+    overflow: hidden !important;
     max-width: 100vw;
 }
 
@@ -1548,9 +1554,14 @@ header .ct-container .logo img {
 /* ==========================================================================
    LENIS SMOOTH SCROLL INTEGRATION
    ========================================================================== */
-html.lenis, html.lenis body {
+html.lenis {
     height: auto;
     scroll-behavior: auto !important;
+}
+
+html.lenis body {
+    height: auto;
+    overflow: hidden !important;
 }
 
 .lenis.lenis-smooth {
