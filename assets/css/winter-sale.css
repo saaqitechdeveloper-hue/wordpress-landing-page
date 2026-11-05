@@ -1607,104 +1607,30 @@ html.lenis, html.lenis body {
 
 
 
+
+
+
 /* ==========================================================================
-   DOCUMENT SNOW RAIN EFFECT (Natural Top-to-Bottom Flow - Non-Fixed)
-   Pure CSS - Repeating Background Gradient Animation
-   Not fixed to viewport: Scrolls naturally with the page, 0% CPU overhead
+   MODERN SNOWFALL ENGINE CANVAS (Ultra High-Performance / Zero CPU Lag)
+   - Viewport-sized GPU Canvas (Not heavy full-page DOM elements)
+   - 60/120 FPS Fluid Motion Parallax
+   - 100% Non-blocking (pointer-events: none)
    ========================================================================== */
-#main {
-    position: relative;
-}
-
-.page-snow-rain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 4;
-}
-
-.snow-rain-layer {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    will-change: background-position;
-}
-
-/* Layer 1: Far / Fine Snow Rain (Gentle, small droplets/flakes, slow diagonal rainfall) */
-.layer-far {
-    background-image: 
-        radial-gradient(1.5px 2px at 25px 40px, rgba(255, 255, 255, 0.7), transparent),
-        radial-gradient(1.5px 2.5px at 120px 160px, rgba(255, 255, 255, 0.65), transparent),
-        radial-gradient(1px 2px at 220px 80px, rgba(255, 255, 255, 0.55), transparent),
-        radial-gradient(1.5px 2px at 310px 220px, rgba(255, 255, 255, 0.65), transparent),
-        radial-gradient(1px 2px at 410px 130px, rgba(255, 255, 255, 0.5), transparent);
-    background-size: 450px 320px;
-    background-repeat: repeat;
-    opacity: 0.5;
-    animation: snowRainFar 10s linear infinite;
-}
-
-/* Layer 2: Mid / Delicate Snow Rain (Medium flakes, moderate rainfall velocity) */
-.layer-mid {
-    background-image: 
-        radial-gradient(2.5px 3.5px at 60px 90px, rgba(255, 255, 255, 0.85), transparent),
-        radial-gradient(2px 3px at 180px 230px, rgba(255, 255, 255, 0.8), transparent),
-        radial-gradient(2.5px 3.5px at 320px 140px, rgba(255, 255, 255, 0.85), transparent),
-        radial-gradient(2px 3px at 440px 290px, rgba(255, 255, 255, 0.75), transparent);
-    background-size: 520px 380px;
-    background-repeat: repeat;
-    opacity: 0.65;
-    animation: snowRainMid 6.5s linear infinite;
-}
-
-/* Layer 3: Near / Soft Glowing Snow Rain (Larger flakes, fast rainfall velocity, subtle bokeh) */
-.layer-near {
-    background-image: 
-        radial-gradient(3.5px 5px at 100px 130px, rgba(255, 255, 255, 0.95), transparent),
-        radial-gradient(3px 4.5px at 270px 320px, rgba(255, 255, 255, 0.9), transparent),
-        radial-gradient(4px 5.5px at 460px 200px, rgba(255, 255, 255, 0.95), transparent);
-    background-size: 580px 450px;
-    background-repeat: repeat;
-    opacity: 0.75;
-    animation: snowRainNear 4s linear infinite;
-}
-
-/* Seamless Continuous Downward Flow with gentle wind drift */
-@keyframes snowRainFar {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 45px 320px;
-    }
-}
-
-@keyframes snowRainMid {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 60px 380px;
-    }
-}
-
-@keyframes snowRainNear {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 75px 450px;
-    }
+#snowfall-canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none !important;
+    z-index: 9998 !important;
+    background: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .page-snow-rain {
+    #snowfall-canvas {
         display: none !important;
     }
 }

@@ -2,16 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
-html,body{
+html {
+    scroll-behavior: auto !important;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100%;
     overflow-x: hidden;
     max-width: 100%;
-}
-
-body{
-    overflow: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #main {

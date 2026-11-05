@@ -223,22 +223,34 @@ function initLenisSmoothScroll() {
 
     try {
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 1.15,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
+            smoothTouch: false,
+            syncTouch: false,
+            touchMultiplier: 1.0,
             wheelMultiplier: 1.0,
-            touchMultiplier: 1.5,
+            infinite: false,
+            autoResize: true,
         });
 
         window.lenis = lenis;
 
-        function raf(time) {
-            lenis.raf(time);
+        // Synchronize with GSAP Ticker for zero-jitter frame timing
+        if (window.gsap && gsap.ticker) {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        } else {
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
             requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
 
         // Smooth scroll for all internal anchors
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
