@@ -1601,19 +1601,25 @@ html.lenis, html.lenis body {
 }
 
 
+
+
+
 /* ==========================================================================
-   HERO BANNER SNOWFALL (Pure CSS Parallax Depth - High Performance)
-   Inspired by: CSS-Only Snowfall with Depth + Parallax (fyildiz1974)
-   Zero JavaScript - GPU Composited - Zero Hang / Lag
+   GLOBAL SNOWFALL EFFECT (Pure CSS Parallax Depth - High Performance)
+   Inspired by: CSS-Only Snowfall with Depth + Parallax (No JavaScript)
+   Covers entire page via fixed viewport overlay - Zero CPU / Zero Lag
    ========================================================================== */
+.global-snowfall,
 .hero-snowfall {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     pointer-events: none;
-    z-index: 3;
+    z-index: 9998;
+    background: transparent;
 }
 
 .snow-drift {
@@ -1626,17 +1632,17 @@ html.lenis, html.lenis body {
 
 .snow-layer {
     position: absolute;
-    top: -100%;
+    top: -100vh;
     left: 0;
     width: 100%;
-    height: 200%;
+    height: 200vh;
     will-change: transform;
     pointer-events: none;
 }
 
 /* Layer 1: Background (Far / Tiny / Slow Drift) */
 .drift-far {
-    animation: snowDriftFar 9s ease-in-out infinite alternate;
+    animation: snowDriftFar 10s ease-in-out infinite alternate;
 }
 .snow-layer-far {
     background-image: 
@@ -1648,13 +1654,13 @@ html.lenis, html.lenis body {
         radial-gradient(1.5px 1.5px at 420px 310px, rgba(255, 255, 255, 0.7), transparent);
     background-size: 450px 360px;
     background-repeat: repeat;
-    opacity: 0.5;
-    animation: snowFallFar 16s linear infinite;
+    opacity: 0.45;
+    animation: snowFallFar 18s linear infinite;
 }
 
 /* Layer 2: Midground (Delicate / Medium Speed) */
 .drift-mid {
-    animation: snowDriftMid 6s ease-in-out infinite alternate;
+    animation: snowDriftMid 7s ease-in-out infinite alternate;
 }
 .snow-layer-mid {
     background-image: 
@@ -1664,13 +1670,13 @@ html.lenis, html.lenis body {
         radial-gradient(2px 2px at 410px 280px, rgba(255, 255, 255, 0.8), transparent);
     background-size: 520px 420px;
     background-repeat: repeat;
-    opacity: 0.7;
-    animation: snowFallMid 10s linear infinite;
+    opacity: 0.65;
+    animation: snowFallMid 12s linear infinite;
 }
 
 /* Layer 3: Foreground (Near / Soft Glowing Bokeh / Faster Parallax) */
 .drift-near {
-    animation: snowDriftNear 4s ease-in-out infinite alternate;
+    animation: snowDriftNear 4.5s ease-in-out infinite alternate;
 }
 .snow-layer-near {
     background-image: 
@@ -1679,41 +1685,42 @@ html.lenis, html.lenis body {
         radial-gradient(4.5px 4.5px at 440px 200px, #ffffff, rgba(255, 255, 255, 0));
     background-size: 600px 500px;
     background-repeat: repeat;
-    opacity: 0.85;
-    animation: snowFallNear 6s linear infinite;
+    opacity: 0.8;
+    animation: snowFallNear 7.5s linear infinite;
 }
 
 @keyframes snowFallFar {
     0% { transform: translateY(0); }
-    100% { transform: translateY(50%); }
+    100% { transform: translateY(100vh); }
 }
 
 @keyframes snowDriftFar {
-    0% { transform: translateX(-18px); }
-    100% { transform: translateX(18px); }
+    0% { transform: translateX(-20px); }
+    100% { transform: translateX(20px); }
 }
 
 @keyframes snowFallMid {
     0% { transform: translateY(0); }
-    100% { transform: translateY(50%); }
+    100% { transform: translateY(100vh); }
 }
 
 @keyframes snowDriftMid {
-    0% { transform: translateX(-24px); }
-    100% { transform: translateX(24px); }
+    0% { transform: translateX(-28px); }
+    100% { transform: translateX(28px); }
 }
 
 @keyframes snowFallNear {
     0% { transform: translateY(0); }
-    100% { transform: translateY(50%); }
+    100% { transform: translateY(100vh); }
 }
 
 @keyframes snowDriftNear {
-    0% { transform: translateX(-32px); }
-    100% { transform: translateX(32px); }
+    0% { transform: translateX(-36px); }
+    100% { transform: translateX(36px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .global-snowfall,
     .hero-snowfall {
         display: none !important;
     }
