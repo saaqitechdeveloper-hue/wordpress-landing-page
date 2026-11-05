@@ -1627,14 +1627,20 @@ html.lenis body {
    - 60/120 FPS Fluid Motion Parallax
    - 100% Non-blocking (pointer-events: none)
    ========================================================================== */
+#hero-banner {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#hero-banner #snowfall-canvas,
 #snowfall-canvas {
-    position: fixed !important;
+    position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
+    width: 100% !important;
+    height: 100% !important;
     pointer-events: none !important;
-    z-index: 9998 !important;
+    z-index: 10 !important;
     background: transparent !important;
     user-select: none !important;
     -webkit-user-select: none !important;
