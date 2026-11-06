@@ -9,7 +9,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initWinterCountdown();
     initCustomSelects();
-    initLenisSmoothScroll();
+    initNativeSmoothScroll();
 });
 
 /**
@@ -193,13 +193,9 @@ function handleSelectPackage(packageType, budget) {
         messageInput.value = 'Selected Deal: ' + mappedType + ' (' + budget + ')';
     }
 
-    // Smooth scroll to form (Lenis integrated)
+    // Smooth scroll to form
     if (formLink) {
-        if (window.lenis) {
-            window.lenis.scrollTo(formLink, { offset: -30, duration: 1.2 });
-        } else {
-            formLink.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        formLink.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Visual pulse effect
@@ -216,56 +212,19 @@ window.selectPackageAndScroll = handleSelectPackage;
 
 
 /**
- * Lenis Smooth Scroll Initialization & Anchor Interception
+ * Native Browser Anchor Smooth Scroll
  */
-function initLenisSmoothScroll() {
-    if (typeof Lenis === 'undefined') return;
-
-    try {
-        const lenis = new Lenis({
-            duration: 1.15,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            smoothTouch: false,
-            syncTouch: false,
-            touchMultiplier: 1.0,
-            wheelMultiplier: 1.0,
-            infinite: false,
-            autoResize: true,
-        });
-
-        window.lenis = lenis;
-
-        // Synchronize with GSAP Ticker for zero-jitter frame timing
-        if (window.gsap && gsap.ticker) {
-            gsap.ticker.add((time) => {
-                lenis.raf(time * 1000);
-            });
-            gsap.ticker.lagSmoothing(0);
-        } else {
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-        }
-
-        // Smooth scroll for all internal anchors
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId !== '#' && targetId.startsWith('#')) {
-                    const targetEl = document.querySelector(targetId);
-                    if (targetEl) {
-                        e.preventDefault();
-                        lenis.scrollTo(targetEl, { offset: -30, duration: 1.2 });
-                    }
+function initNativeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            });
+            }
         });
-    } catch (err) {
-        console.warn('Lenis initialization failed:', err);
-    }
+    });
 }
