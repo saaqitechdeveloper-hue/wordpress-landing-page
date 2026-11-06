@@ -7,6 +7,8 @@
 html {
     scroll-behavior: auto !important;
     overflow-x: hidden;
+    scrollbar-color: #fd235a #ffffff;
+    scrollbar-width: thin;
 }
 
 body {
@@ -1642,25 +1644,22 @@ footer .discuss {
     font-family: 'Kanit' !important;
 }
 
-/* Custom Scrollbar - Single Window Track */
-html::-webkit-scrollbar {
-  width: 7px;
+/* Custom Scrollbar - Chrome, Edge, Safari, Opera */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-html::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #ffffff;
 }
 
-html::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #fd235a, #ff4f39);
   border-radius: 4px;
 }
 
-/* Prevent any secondary scrollbar on body */
-body::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #e01548, #e63925);
 }
 
 
