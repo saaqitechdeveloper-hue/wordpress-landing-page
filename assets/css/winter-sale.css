@@ -6,6 +6,8 @@
 html, body {
     overflow-x: hidden;
     max-width: 100vw;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
 }
 
 :root {
@@ -1544,6 +1546,30 @@ header .ct-container .logo img {
     box-shadow: 0 6px 24px rgba(255, 26, 64, 0.6) !important;
     background: linear-gradient(135deg, #ff3356, #ff5e47) !important;
 }
+
+/* ==========================================================================
+   LENIS SMOOTH SCROLL INTEGRATION
+   ========================================================================== */
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
 
 /* ==========================================================================
    MOBILE FOOTER LOGO & DECORATION OPTIMIZATION
