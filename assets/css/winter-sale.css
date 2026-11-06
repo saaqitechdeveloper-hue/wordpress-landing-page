@@ -3,9 +3,18 @@
    50% OFF WordPress Websites Promotion
    ========================================================================== */
 
-html, body {
+html {
     overflow-x: hidden;
     max-width: 100vw;
+}
+
+body {
+    overflow: visible !important;
+    max-width: 100vw;
+}
+
+main#main {
+    overflow: hidden;
 }
 
 :root {
@@ -1550,6 +1559,10 @@ header .ct-container .logo img {
    ========================================================================== */
 html.lenis, html.lenis body {
     height: auto;
+}
+
+html.lenis body {
+    overflow: visible !important;
 }
 
 .lenis.lenis-smooth {

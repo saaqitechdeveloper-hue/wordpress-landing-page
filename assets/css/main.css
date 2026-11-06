@@ -7,22 +7,24 @@
 html {
     scroll-behavior: auto !important;
     overflow-x: hidden;
+    overflow-y: scroll;
     scrollbar-color: #fd235a #ffffff;
     scrollbar-width: thin;
 }
 
 body {
     min-height: 100%;
-    overflow-x: hidden;
+    overflow: visible !important;
     max-width: 100%;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-#main {
+main#main, #main {
     max-width: 100%;
     background: #191919;
+    overflow: hidden;
 }
 
 #form-link{
@@ -1660,6 +1662,14 @@ footer .discuss {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #e01548, #e63925);
+}
+
+/* Explicitly eliminate any inner scrollbar on body and main */
+body::-webkit-scrollbar,
+#main::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 
