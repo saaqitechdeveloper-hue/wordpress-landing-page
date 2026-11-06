@@ -7,8 +7,6 @@
 html {
     scroll-behavior: auto !important;
     overflow-x: hidden;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
 }
 
 body {
@@ -16,8 +14,6 @@ body {
     overflow-x: hidden;
     max-width: 100%;
     position: relative;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -1646,14 +1642,25 @@ footer .discuss {
     font-family: 'Kanit' !important;
 }
 
-/* Complete scrollbar removal across all browsers */
-::-webkit-scrollbar,
-html::-webkit-scrollbar,
+/* Custom Scrollbar - Single Window Track */
+html::-webkit-scrollbar {
+  width: 7px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #fd235a, #ff4f39);
+  border-radius: 4px;
+}
+
+/* Prevent any secondary scrollbar on body */
 body::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
-  background: transparent !important;
 }
 
 
