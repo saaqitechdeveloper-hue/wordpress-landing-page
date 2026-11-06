@@ -3,13 +3,8 @@
    50% OFF WordPress Websites Promotion
    ========================================================================== */
 
-html {
+html, body {
     overflow-x: hidden;
-    max-width: 100vw;
-}
-
-body {
-    overflow: hidden;
     max-width: 100vw;
 }
 
