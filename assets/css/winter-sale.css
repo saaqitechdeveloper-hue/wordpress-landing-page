@@ -3,8 +3,13 @@
    50% OFF WordPress Websites Promotion
    ========================================================================== */
 
-html, body {
+html {
     overflow-x: hidden;
+    max-width: 100vw;
+}
+
+body {
+    overflow: hidden;
     max-width: 100vw;
 }
 
@@ -1598,7 +1603,13 @@ header .ct-container .logo img {
 #hero-banner {
     position: relative !important;
     overflow: hidden !important;
-    margin-top: -10px !important;
+    margin-top: -85px !important;
+}
+
+@media (max-width: 768px) {
+    #hero-banner {
+        margin-top: -65px !important;
+    }
 }
 
 #hero-banner #snowfall-canvas,
